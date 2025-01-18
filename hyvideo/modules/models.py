@@ -690,7 +690,9 @@ class HYVideoDiffusionTransformer(ModelMixin, ConfigMixin):
             cu_seqlens_kv = cu_seqlens_q
 
         freqs_cis = (freqs_cos, freqs_sin) if freqs_cos is not None else None
-        
+        #print("self.enable_teacache", self.enable_teacache)
+        self.enable_teacache = False
+        print("self.enable_teacache 2", self.enable_teacache)
         if self.enable_teacache:
             inp = img.clone()
             vec_ = vec.clone()
